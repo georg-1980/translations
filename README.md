@@ -1,1 +1,4 @@
 # translations
+
+s
+ww
