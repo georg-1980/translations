@@ -1,0 +1,37 @@
+tasks:
+  - before: echo 'GEorg test 01' #echo "deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted" >> /etc/apt/sources.list && echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security main restricted" >> /etc/apt/sources.list" && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security universe" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security multiverse" >> /etc/apt/sources.list  
+    init:  echo 'GEorg test 02' #sudo apt-get update #&& sudo apt-get install build-essential git libkrb5-dev graphviz nasm ccache -y && sudo apt-get build-dep -y libreoffice #sudo apt-get install ccache -y 
+    command:  echo 'GEorg test 03' #sudo apt-get install ccache -y && ccache -M 51
+#  - name: Database
+#    init: echo 'init database' 
+#    command: npm start-db
+#    env:
+#      DB_HOST: localhost:3306
+#      DB_USER: readOnlyUser
+# Ports to expose on workspace startup
+ports:
+  - port: 5900
+    onOpen: open-preview
+  - port: 6080
+    onOpen: open-preview
+  - port: 3306
+    onOpen: ignore
+github:
+  prebuilds:
+    # enable for the default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: false
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: false
+    # add a check to pull requests (defaults to true)
+    addCheck: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: false
+    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
+    addBadge: false
+vscode:
+ extensions:
+  - ms-vscode.makefile-tools@0.3.1
